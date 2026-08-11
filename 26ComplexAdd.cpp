@@ -11,7 +11,8 @@ int main()
     cout << "Enter Second Complex Number: ";
     cin >> r2 >> i2;
 
-    cout << "Sum = " << r1 + r2 << " + " << i1 + i2 << "i";
+    cout << "Sum = " << r1 + r2 << " + " << i1 + i2 << "i" << endl;
+    cout << "Sub = " << r1 - r2 << " + " << i1 - i2 << "i";
 
     return 0;
 }
