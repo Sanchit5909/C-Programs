@@ -3,37 +3,79 @@ using namespace std;
 
 class Complex
 {
-    int r, i;
+    int re, im;
 
 public:
     void accept()
     {
-        cin >> r >> i;
+        cout << "Enter real part: ";
+        cin >> re;
+
+        cout << "Enter imaginary part: ";
+        cin >> im;
     }
 
-    void add(Complex c)
+    Complex add(Complex c)
     {
-        cout << "Addition = " << r + c.r << " + " << i + c.i << "i\n";
+        Complex res;
+
+        res.re = re + c.re;
+        res.im = im + c.im;
+
+        return res;
     }
 
-    void subtract(Complex c)
+    Complex subtract(Complex c)
     {
-        cout << "Subtraction = " << r - c.r << " + " << i - c.i << "i\n";
+        Complex res;
+
+        res.re = re - c.re;
+        res.im = im - c.im;
+
+        return res;
+    }
+
+    void display()
+    {
+        cout << re << " + " << im << "i";
     }
 };
 
 int main()
 {
-    Complex c1, c2;
+    Complex c1, c2, c3, sum, diff;
 
-    cout << "Enter First Complex Number: ";
+    cout << "Enter the First Complex Number:" << endl;
     c1.accept();
 
-    cout << "Enter Second Complex Number: ";
+    cout <<endl<< "Enter the Second Complex Number:" << endl;
     c2.accept();
 
-    c1.add(c2);
-    c1.subtract(c2);
+    cout<<endl<<"Enter the Third Complex Number:"<<endl;
+    c3.accept();
 
+    sum = c1.add(c2);
+    diff = c1.subtract(c2);
+    cout<<"c1 + c2 :- ";
+    sum.display();
+    cout<<endl<<"c1 - c2 :- ";
+    diff.display();
+
+    sum = c1.add(c3);
+    diff = c1.subtract(c3);
+    cout<<endl<<"c1 + c3 :- ";
+    sum.display();
+    cout<<endl<<"c1 - c3 :- ";
+    diff.display();
+
+
+    sum = c2.add(c3);
+    diff =c2.subtract(c3);
+    cout<<endl<<"c2 + c3 :- ";
+    sum.display();
+    cout<<endl<<"c2 -c3 :- ";
+    diff.display();
+
+    
     return 0;
 }
