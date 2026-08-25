@@ -3,53 +3,64 @@ using namespace std;
 
 class Time
 {
-    int h, m, s;
+    int hours, minutes, seconds;
 
 public:
     void accept()
     {
-        cin >> h >> m >> s;
+        cout << "Enter hours: ";
+        cin >> hours;
+
+        cout << "Enter minutes: ";
+        cin >> minutes;
+
+        cout << "Enter seconds: ";
+        cin >> seconds;
     }
 
-    void add(Time t)
+    Time add(Time t)
     {
-        s = s + t.s;
-        m = m + t.m;
-        h = h + t.h;
+        Time result;
 
-        if (s >= 60)
+        result.seconds = seconds + t.seconds;
+        result.minutes = minutes + t.minutes;
+        result.hours = hours + t.hours;
+
+        if (result.seconds >= 60)
         {
-            s = s - 60;
-            m++;
+            result.seconds = result.seconds - 60;
+            result.minutes++;
         }
 
-        if (m >= 60)
+        if (result.minutes >= 60)
         {
-            m = m - 60;
-            h++;
+            result.minutes = result.minutes - 60;
+            result.hours++;
         }
+
+        return result;
     }
 
     void display()
     {
-        cout << h << ":" << m << ":" << s;
+        cout << hours << ":" << minutes << ":" << seconds;
     }
 };
 
 int main()
 {
-    Time t1, t2;
+    Time t1, t2, result;
 
-    cout << "Enter first time (HH MM SS): ";
+    cout << "Enter First Time:" << endl;
     t1.accept();
 
-    cout << "Enter second time (HH MM SS): ";
+    cout <<endl<< "Enter Second Time:" << endl;
     t2.accept();
 
-    t1.add(t2);
+    result = t1.add(t2);
 
-    cout << "Result = ";
-    t1.display();
+    cout <<endl<< "Resultant Time: ";
+    result.display();
 
     return 0;
 }
