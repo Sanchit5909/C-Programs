@@ -9,7 +9,7 @@ class Employee
     float salary;
 
 public:
-    // Default constructor
+    
     Employee()
     {
         id = 0;
@@ -17,7 +17,6 @@ public:
         salary = 0;
     }
 
-    // Parameterized constructor
     Employee(int i, string n, float s)
     {
         id = i;
@@ -25,7 +24,6 @@ public:
         salary = s;
     }
 
-    // Copy constructor
     Employee(Employee &e)
     {
         id = e.id;
